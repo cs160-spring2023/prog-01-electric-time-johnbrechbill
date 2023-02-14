@@ -1,16 +1,4 @@
-/*
-Node + Express Example code for CS160 Summer 2022
-Prepared by Shm Garanganao Almeda 
 
-Code referenced from: 
-https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module"
-https://expressjs.com/en/starter/hello-world.html
-https://codeforgeek.com/render-html-file-expressjs/
-https://stackoverflow.com/questions/32257736/app-use-express-serve-multiple-html
-
-Photo Credits:
-Bunny by Satyabratasm on Unsplash <https://unsplash.com/photos/u_kMWN-BWyU>
-*/
 
 //Node modules to *require*
 //if these cause errors, be sure you've installed them, ex: 'npm install express'
@@ -23,6 +11,12 @@ const path = require('path');
 const host = 'localhost';
 const port = 8000;
 
+$(".dropdown-menu li a").click(function(){
+  
+    $(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+    
+});
+  
 var publicPath = path.join(__dirname, 'public'); //get the path to use our "public" folder where we stored our html, css, images, etc
 app.use(express.static(publicPath));  //tell express to use that folder
 
@@ -35,6 +29,7 @@ router.get("/", function (req, res) {
 });
 
 //depending on what url extension the user navigates to, send them the respective html file. 
+/*
 app.get('/a', function (req, res) {
     res.sendFile(publicPath + '/a.html');
 });
@@ -44,7 +39,7 @@ app.get('/b', function (req, res) {
 app.get('/c', function (req, res) {
     res.sendFile(publicPath + '/c.html');
 });
-
+*/
 
 //run this server by entering "node App.js" using your command line. 
    app.listen(port, () => {
